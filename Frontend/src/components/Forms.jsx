@@ -75,15 +75,14 @@ export default function Forms() {
     return (
         <>
             <article className={styles.container}>
-
                 <form action="" className={styles.containerForms}>
                     <section className={styles.container1}>
 
-                        <div className="max-w-lg">
+                        <div className="w-full">
                             <div className="mb-2 block">
                                 <Label htmlFor="receptor" value="Receptor*" />
                             </div>
-                            <Select id="receptor" required>
+                            <Select id="receptor" className={styles.item} required>
                                 <option value="0">none</option>
                                 <option value="">United States</option>
                                 <option value="">Canada</option>
@@ -93,30 +92,30 @@ export default function Forms() {
                         </div>
 
 
-                        <div>
+                        <div className="w-full">
                             <div className="mb-2 block">
                                 <Label htmlFor="rfc" value="RFC" />
                             </div>
-                            <TextInput id="rfc" type="text" sizing="md" required />
+                            <TextInput id="rfc" type="text" sizing="md" className={styles.item} required />
                         </div>
-                        <div>
+                        <div className="w-full">
                             <div className="mb-2 block">
                                 <Label htmlFor="regimen" value="Regimen" />
                             </div>
-                            <TextInput id="regimen" type="text" sizing="md" required />
+                            <TextInput id="regimen" type="text" sizing="md" className={styles.item} required />
                         </div>
-                        <div>
+                        <div className="w-full">
                             <div className="mb-2 block">
                                 <Label htmlFor="cp" value="C.P." />
                             </div>
-                            <TextInput id="cp" type="text" sizing="md" required />
+                            <TextInput id="cp" type="text" sizing="md" className={styles.item} required />
                         </div>
 
-                        <div className="max-w-lg">
+                        <div className="w-full">
                             <div className="mb-2 block">
                                 <Label htmlFor="Cfdi" value="Uso del CFDI*" />
                             </div>
-                            <Select id="Cfdi" required>
+                            <Select id="Cfdi" className={styles.item} required>
                                 <option value="0">ninguno</option>
                                 {CFDI.map((metodo) => (
                                     <option key={metodo.id} value={metodo.clave}>{metodo.cfdi}</option>
@@ -124,17 +123,17 @@ export default function Forms() {
                             </Select>
                         </div>
 
-                        <div>
+                        <div className="w-full">
                             <div className="mb-2 block">
                                 <Label htmlFor="emisor" value="Emisor" />
                             </div>
-                            <TextInput id="emisor" type="text" sizing="md" required />
+                            <TextInput id="emisor" type="text" sizing="md" className={styles.item} required />
                         </div>
-                        <div className="max-w-lg">
+                        <div className="w-full">
                             <div className="mb-2 block">
                                 <Label htmlFor="MdP" value="Metodo de Pago*" />
                             </div>
-                            <Select id="MdP" required>
+                            <Select id="MdP" className={styles.item} required>
                                 <option value="0">ninguno</option>
                                 {MetodoDePago.map((metodo) => (
                                     <option key={metodo.id} value={metodo.clave}>{metodo.mdp}</option>
@@ -143,11 +142,11 @@ export default function Forms() {
                             </Select>
                         </div>
 
-                        <div className="max-w-lg">
+                        <div className="w-full">
                             <div className="mb-2 block">
                                 <Label htmlFor="FdP" value="Forma de pago*" />
                             </div>
-                            <Select id="FdP" required>
+                            <Select id="FdP" className={styles.item} required>
                                 <option value="0">ninguno</option>
                                 {FormaDePago.map((metodo) => (
                                     <option key={metodo.id} value={metodo.clave}>{metodo.fdp}</option>
@@ -155,64 +154,64 @@ export default function Forms() {
                             </Select>
                         </div>
 
-                        <div>
+                        <div className="w-full">
                             <div className="mb-2 block">
                                 <Label htmlFor="digitos" value="Ultimos cuatro digitos" />
                             </div>
-                            <TextInput id="digitos" type="text" sizing="md" required />
+                            <TextInput id="digitos" type="text" sizing="md" className={styles.item} required />
                         </div>
-                        <div>
+                        <div className="w-full">
                             <div className="mb-2 block">
                                 <Label htmlFor="fecha" value="Fecha" />
                             </div>
-                            <TextInput id="fecha" type="date" sizing="md" required />
+                            <TextInput id="fecha" type="date" sizing="md" className={styles.item} required />
                         </div>
-                        <div>
+                        <div className="w-full">
                             <div className="mb-2 block">
                                 <Label htmlFor="banco" value="Banco" />
                             </div>
-                            <TextInput id="banco" type="text" sizing="md" required />
+                            <TextInput id="banco" type="text" sizing="md" className={styles.item} required />
                         </div>
                     </section>
                     <section className={styles.container2}>
-                        <div>
+                        <div className="w-full">
                             <div className="mb-2 block">
                                 <Label htmlFor="cantidad" value="CANTIDAD" />
                             </div>
-                            <TextInput id="cantidad" type="number" sizing="md" required />
+                            <TextInput id="cantidad" type="number" sizing="md" className={styles.item} required />
                         </div>
-                        <div>
+                        <div className="w-full">
                             <div className="mb-2 block">
                                 <Label htmlFor="unidad" value="UNIDAD" />
                             </div>
-                            <TextInput id="unidad" type="text" sizing="md" required />
+                            <TextInput id="unidad" type="text" sizing="md" className={styles.item} required />
                         </div>
-                        <div>
+                        <div className="w-full">
                             <div className="mb-2 block">
                                 <Label htmlFor="sat" value="CLAVE SAT" />
                             </div>
-                            <TextInput id="sat" type="text" sizing="md" required />
+                            <TextInput id="sat" type="text" sizing="md" className={styles.item} required />
                         </div>
 
-                        <div className="max-w-md">
+                        <div className="w-full">
                             <div className="mb-2 block">
                                 <Label htmlFor="descripcion" value="DESCRIPCION*" />
                             </div>
-                            <Textarea id="descripcion" placeholder="Descripcion..." required rows={7} />
+                            <Textarea id="descripcion" placeholder="Descripcion..." className={styles.item} required rows={7} />
                         </div>
 
-                        <div>
+                        <div className="w-full">
                             <div className="mb-2 block">
                                 <Label htmlFor="precioUnitario" value="P.UNITARIO" />
                             </div>
-                            <TextInput id="precioUnitario" type="text" sizing="md" required onChange={handlechangePunitario} value={valueP}/>
+                            <TextInput id="precioUnitario" type="text" sizing="md" className={styles.item} required onChange={handlechangePunitario} value={valueP}/>
                         </div>
 
-                        <div>
+                        <div className="w-full">
                             <div className="mb-2 block">
                                 <Label htmlFor="importe" value="IMPORTE" />
                             </div>
-                            <TextInput id="importe" type="text" sizing="md" required onChange={handlechangeImporte} value={valueI}/>
+                            <TextInput id="importe" type="text" sizing="md" className={styles.item} required onChange={handlechangeImporte} value={valueI}/>
                         </div>
                         
                     </section>

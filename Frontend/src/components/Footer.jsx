@@ -20,7 +20,7 @@ export default function Component() {
           </Footer.LinkGroup>
         </div>
         <Footer.Divider />
-        <Footer.Copyright href="#" by="Flowbite™" year={2022} />
+        <Footer.Copyright href="#" by="Av-Skallet" year={2024} />
       </div>
     </Footer>
   );

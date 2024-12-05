@@ -15,9 +15,16 @@ const handleGenerateExcel = async (formData) => {
     const worksheet = workbook.getWorksheet(1); // O usa el nombre con workbook.getWorksheet('NombreHoja')
 
     // Escribir datos en celdas específicas
-    worksheet.getCell('A1').value = formData.nombre; // Ejemplo: Escribir el nombre en A1
-    worksheet.getCell('B1').value = formData.apellido; // Escribir el apellido en B1
-    worksheet.getCell('C1').value = formData.edad; // Escribir la edad en C1
+    worksheet.getCell('B3').value = formData.receptor; // Ejemplo: Escribir el nombre en A1
+    worksheet.getCell('B4').value = formData.rfc; 
+    worksheet.getCell('B5').value = formData.regimen; 
+    worksheet.getCell('B6').value = formData.cp; 
+    worksheet.getCell('I3').value = formData.emisor; 
+    worksheet.getCell('J6').value = formData.ultimosc; 
+    worksheet.getCell('N3').value = formData.banco; 
+    worksheet.getCell('B11').value = formData.unidad; // no lo se
+    worksheet.getCell('C11').value = formData.clavesat; 
+    worksheet.getCell('B16').value = formData.claveproducto; 
 
     // Generar un archivo Excel modificado
     const buffer = await workbook.xlsx.writeBuffer();

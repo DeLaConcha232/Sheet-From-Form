@@ -2,18 +2,12 @@
 .container{
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin: 40px;
+    margin: 0 10%;
 
 }
-/* .containerForms{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin: 40px;
-} */
+.containerForms{
+    width: 100%;
+} 
 .submitBtn{
     width: 100%;
     height: auto;
@@ -28,3 +22,13 @@
     gap: 10px;
 }
 
+.item{
+    width:100%;
+    height: auto;
+}
+
+@media(min-width: 768px){
+    .container{
+        margin: 0 25%;
+    }
+}

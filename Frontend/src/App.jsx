@@ -10,7 +10,7 @@ export default function App() {
       <Navbar />
       <main className={styles.container}>
         <picture className={styles.Logo}>
-          <img src="/vite.svg" alt="Logotipo" className={styles.image} />
+          <img src="/" alt="FORTESlogo" className={styles.image} />
         </picture>
         <article>
           <h1 className={styles.Title}>DATOS DE FACTURACION</h1>
