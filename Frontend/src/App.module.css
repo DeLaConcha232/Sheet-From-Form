@@ -1,4 +1,9 @@
 
+.container{
+    margin: 5rem 0;
+}
+
+
 .Logo{
     display: flex;
     justify-content: center;
@@ -17,3 +22,10 @@
 }
 
 
+@media (min-width: 1150px){
+    .Title{
+        font-size: 3rem;
+    }
+
+    
+}

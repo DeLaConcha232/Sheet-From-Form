@@ -9,7 +9,7 @@ export default function Component() {
         <span className="self-center whitespace-nowrap text-xl font-semibold dark:text-white">Sheet From Form</span>
       </Navbar.Brand>
       <Navbar.Toggle />
-      <Navbar.Collapse>
+      {/* <Navbar.Collapse>
         <Navbar.Link href="#" active>
           Home
         </Navbar.Link>
@@ -19,7 +19,7 @@ export default function Component() {
         <Navbar.Link href="#">Services</Navbar.Link>
         <Navbar.Link href="#">Pricing</Navbar.Link>
         <Navbar.Link href="#">Contact</Navbar.Link>
-      </Navbar.Collapse>
+      </Navbar.Collapse> */}
     </Navbar>
   );
 }

@@ -9,12 +9,14 @@ export default function App() {
     <>
       <Navbar />
       <main className={styles.container}>
-        <picture className={styles.Logo}>
-          <img src="/" alt="FORTESlogo" className={styles.image} />
-        </picture>
-        <article>
-          <h1 className={styles.Title}>DATOS DE FACTURACION</h1>
-        </article>
+        <section className={styles.containerTitleLogo}>
+          <picture className={styles.Logo}>
+            <img src="/" alt="FORTESlogo" className={styles.image} />
+          </picture>
+          <article>
+            <h1 className={styles.Title}>DATOS DE FACTURACION</h1>
+          </article>
+        </section>
         <Forms />
         {/* <Preview /> */}
       </main>
