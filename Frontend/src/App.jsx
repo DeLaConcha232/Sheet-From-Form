@@ -2,7 +2,7 @@ import styles from './App.module.css';
 import Forms from './components/Forms'
 import Footer from './components/Footer'
 import Navbar from './components/Navbar'
-import Preview from './components/Preview'
+// import Preview from './components/Preview'
 
 export default function App() {
   return (
@@ -16,7 +16,7 @@ export default function App() {
           <h1 className={styles.Title}>DATOS DE FACTURACION</h1>
         </article>
         <Forms />
-        <Preview />
+        {/* <Preview /> */}
       </main>
       <Footer />
     </>
