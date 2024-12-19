@@ -1,4 +1,4 @@
-import styles from '../stylesComponents/preview.module.css';
+import styles from '../styles/preview.module.css';
 
 export default function Preview() {
     return (

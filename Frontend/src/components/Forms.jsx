@@ -1,6 +1,7 @@
 import { useState } from 'react';
-import styles from '../stylesComponents/forms.module.css'
+import styles from '../styles/forms.module.css'
 import { Button, Label, TextInput, Select, Textarea } from "flowbite-react";
+import { useForm } from 'react-hook-form';
 
 
 
@@ -72,22 +73,49 @@ export default function Forms() {
         setImporte(formattedValue);
     }
 
+    const { register, handleSubmit } = useForm();
+    const onSubmit = (data) => console.log(data);
+
+    const ONsubmit = async (data) => {
+        try {
+            // Llamada al endpoint del backend
+            const response = await fetch("http://localhost:3000/endpoint", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(data), // Convertir datos a JSON
+            });
+
+            if (response.ok) {
+                const result = await response.json();
+                console.log("Datos enviados exitosamente:", result);
+            } else {
+                console.error("Error al enviar los datos:", response.statusText);
+            }
+        } catch (error) {
+            console.error("Error en la conexión:", error);
+        }
+    }
+
+
+
     return (
         <>
             <article className={styles.container}>
-                <form action="" className={styles.containerForms}>
+                <form onSubmit={handleSubmit(ONsubmit, onSubmit)} className={styles.containerForms} id='myForm'>
                     <section className={styles.container1}>
 
                         <div className="w-full">
                             <div className="mb-2 block">
                                 <Label htmlFor="receptor" value="Receptor*" />
                             </div>
-                            <Select id="receptor" className={styles.item} required>
+                            <Select id="receptor" {...register("receptor")} className={styles.item} required>
                                 <option value="0">none</option>
-                                <option value="">United States</option>
-                                <option value="">Canada</option>
-                                <option value="">France</option>
-                                <option value="">Germany</option>
+                                <option value="United States">United States</option>
+                                <option value="Canada">Canada</option>
+                                <option value="France">France</option>
+                                <option value="Germany">Germany</option>
                             </Select>
                         </div>
 
@@ -96,26 +124,26 @@ export default function Forms() {
                             <div className="mb-2 block">
                                 <Label htmlFor="rfc" value="RFC" />
                             </div>
-                            <TextInput id="rfc" type="text" sizing="md" className={styles.item} required />
+                            <TextInput id="rfc" type="text" sizing="md" {...register("RFC")} className={styles.item} required />
                         </div>
                         <div className="w-full">
                             <div className="mb-2 block">
                                 <Label htmlFor="regimen" value="Regimen" />
                             </div>
-                            <TextInput id="regimen" type="text" sizing="md" className={styles.item} required />
+                            <TextInput id="regimen" type="text" sizing="md" {...register("regimen")} className={styles.item} required />
                         </div>
                         <div className="w-full">
                             <div className="mb-2 block">
                                 <Label htmlFor="cp" value="C.P." />
                             </div>
-                            <TextInput id="cp" type="text" sizing="md" className={styles.item} required />
+                            <TextInput id="cp" type="text" sizing="md" {...register("CP")} className={styles.item} required />
                         </div>
 
                         <div className="w-full">
                             <div className="mb-2 block">
                                 <Label htmlFor="Cfdi" value="Uso del CFDI*" />
                             </div>
-                            <Select id="Cfdi" className={styles.item} required>
+                            <Select id="Cfdi" {...register("cfdi")} className={styles.item} required>
                                 <option value="0">ninguno</option>
                                 {CFDI.map((metodo) => (
                                     <option key={metodo.id} value={metodo.clave}>{metodo.cfdi}</option>
@@ -127,13 +155,14 @@ export default function Forms() {
                             <div className="mb-2 block">
                                 <Label htmlFor="emisor" value="Emisor" />
                             </div>
-                            <TextInput id="emisor" type="text" sizing="md" className={styles.item} required />
+                            <TextInput id="emisor" {...register("emisor")} type="text" sizing="md" className={styles.item} required />
                         </div>
+                        
                         <div className="w-full">
                             <div className="mb-2 block">
                                 <Label htmlFor="MdP" value="Metodo de Pago*" />
                             </div>
-                            <Select id="MdP" className={styles.item} required>
+                            <Select id="MdP" {...register("MetodoPago")} className={styles.item} required>
                                 <option value="0">ninguno</option>
                                 {MetodoDePago.map((metodo) => (
                                     <option key={metodo.id} value={metodo.clave}>{metodo.mdp}</option>
@@ -146,7 +175,7 @@ export default function Forms() {
                             <div className="mb-2 block">
                                 <Label htmlFor="FdP" value="Forma de pago*" />
                             </div>
-                            <Select id="FdP" className={styles.item} required>
+                            <Select id="FdP" {...register("FormaPago")} className={styles.item} required>
                                 <option value="0">ninguno</option>
                                 {FormaDePago.map((metodo) => (
                                     <option key={metodo.id} value={metodo.clave}>{metodo.fdp}</option>
@@ -158,19 +187,19 @@ export default function Forms() {
                             <div className="mb-2 block">
                                 <Label htmlFor="digitos" value="Ultimos cuatro digitos" />
                             </div>
-                            <TextInput id="digitos" type="text" sizing="md" className={styles.item} required />
+                            <TextInput id="digitos" {...register("ultimos4digitos")} type="text" sizing="md" className={styles.item} required />
                         </div>
                         <div className="w-full">
                             <div className="mb-2 block">
                                 <Label htmlFor="fecha" value="Fecha" />
                             </div>
-                            <TextInput id="fecha" type="date" sizing="md" className={styles.item} required />
+                            <TextInput id="fecha" {...register("fecha")} type="date" sizing="md" className={styles.item} required />
                         </div>
                         <div className="w-full">
                             <div className="mb-2 block">
                                 <Label htmlFor="banco" value="Banco" />
                             </div>
-                            <TextInput id="banco" type="text" sizing="md" className={styles.item} required />
+                            <TextInput id="banco" {...register("banco")} type="text" sizing="md" className={styles.item} required />
                         </div>
                     </section>
                     <section className={styles.container2}>
@@ -178,47 +207,63 @@ export default function Forms() {
                             <div className="mb-2 block">
                                 <Label htmlFor="cantidad" value="CANTIDAD" />
                             </div>
-                            <TextInput id="cantidad" type="number" sizing="md" className={styles.item} required />
+                            <TextInput id="cantidad" {...register("cantidad")} type="number" sizing="md" className={styles.item} required />
                         </div>
                         <div className="w-full">
                             <div className="mb-2 block">
                                 <Label htmlFor="unidad" value="UNIDAD" />
                             </div>
-                            <TextInput id="unidad" type="text" sizing="md" className={styles.item} required />
+                            <TextInput id="unidad" {...register("unidad")} type="text" sizing="md" className={styles.item} required />
                         </div>
                         <div className="w-full">
                             <div className="mb-2 block">
                                 <Label htmlFor="sat" value="CLAVE SAT" />
                             </div>
-                            <TextInput id="sat" type="text" sizing="md" className={styles.item} required />
+                            <TextInput id="sat" {...register("sat")} type="text" sizing="md" className={styles.item} required />
                         </div>
 
                         <div className="w-full">
                             <div className="mb-2 block">
                                 <Label htmlFor="descripcion" value="DESCRIPCION*" />
                             </div>
-                            <Textarea id="descripcion" placeholder="Descripcion..." className={styles.item} required rows={7} />
+                            <Textarea id="descripcion" {...register("descripcion")} placeholder="Descripcion..." className={styles.item} required rows={7} />
                         </div>
 
                         <div className="w-full">
                             <div className="mb-2 block">
                                 <Label htmlFor="precioUnitario" value="P.UNITARIO" />
                             </div>
-                            <TextInput id="precioUnitario" type="text" sizing="md" className={styles.item} required onChange={handlechangePunitario} value={valueP}/>
+                            <TextInput id="precioUnitario" {...register("precioUnitario")} type="text" sizing="md" className={styles.item} onChange={handlechangePunitario} value={valueP} required  />
                         </div>
 
                         <div className="w-full">
                             <div className="mb-2 block">
                                 <Label htmlFor="importe" value="IMPORTE" />
                             </div>
-                            <TextInput id="importe" type="text" sizing="md" className={styles.item} required onChange={handlechangeImporte} value={valueI}/>
+                            <TextInput id="importe" {...register("importe")} type="text" sizing="md" className={styles.item} onChange={handlechangeImporte} value={valueI} required />
                         </div>
-                        
+
+                        <div className="w-full">
+                            <div className="mb-2 block">
+                                <Label htmlFor="claveP" value="CLAVE-PRODUCTO" />
+                            </div>
+                            <TextInput id="claveP" {...register("claveP")} type="text" sizing="md" className={styles.item} required />
+                        </div>
+
+                        <div className="w-full">
+                            <div className="mb-2 block">
+                                <Label htmlFor="descripcionP" value="DESCRIPCION-PRODUCTO" />
+                            </div>
+                            <TextInput id="descripcionP" {...register("descripcionP")} type="text" sizing="md" className={styles.item} required />
+                        </div>
+
+
                     </section>
-                    <Button color="blue" type="submit" className={styles.submitBtn}>Generar Documento</Button>
-                    <Button color="red" type="reset" className={styles.submitBtn}>Resetear Campos</Button>
+                    <Button color="blue" type="submit" className={styles.submitBtn}>Generar Documento Excel</Button>
+                    <Button color="red" type="reset" className={styles.submitBtn}>Resetear Campos del Formulario</Button>
                 </form>
             </article>
         </>
     )
 }
+

@@ -1,17 +1,19 @@
+
 .Logo{
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 20px;
+    margin: 4rem 20px;
     .image{
         width: 100px;
         height: 100px;
     }
 }
 .Title{
-    font-size: 1.5rem;
+    font-size: 2rem;
     font-weight: bold;
     text-align: center;
-    margin: 1rem 0;
+    margin: 3rem 0;
 }
+
 
